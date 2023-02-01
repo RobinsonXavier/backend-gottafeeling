@@ -1,5 +1,8 @@
 import express from 'express';
+import { loadEnv } from './config/envs';
 import cors from 'cors';
+
+loadEnv();
 
 const App = express();
 
