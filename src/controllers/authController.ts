@@ -17,6 +17,18 @@ export async function signup(req: Request, res: Response) {
   }
 }
 
+export async function signin(req: Request, res: Response) {
+  const { email, password } = req.body;
+
+  try {
+    const response = await authService.signin({email, password});
+    return res.status(200).send(response);
+  } catch (error) {
+    console.error(error);
+    return res.sendStatus(401);
+  }
+}
+
 export async function getSignupGenderData(req: Request, res: Response) {
   try {
     const response = await authService.signupGenderData();
