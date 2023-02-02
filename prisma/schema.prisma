@@ -70,3 +70,9 @@ model Sharing {
   message String @db.Text
   User User @relation(fields: [userId], references: [id])
 }
+
+model Welcome {
+  id      Int @id @default(autoincrement())
+  title   String @db.VarChar(100)
+  message String @db.VarChar(255)
+}
